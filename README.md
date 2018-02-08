@@ -29,7 +29,7 @@ So the idea of a view, that is permanently observing the model, that is bound to
 
 **Now what is the model?** The big data model? The data view taken from this big data by any kind of a query? Or both? This are two reasons, why the MVC pattern leads to confusion. First there are two kinds of data, the big one and the small copy. The small copy is a central part. For the DB it's a query result, for JSP it's a JavaBean, other frameworks speak of domain objects, and, and, and ... Dispite the small data copy is a central key in the MVC pattern it lacks a common term. Second, in the moment the small copy comes in, the observer pattern becomes pointless. A copy doesn't change. There is no reason to bind to a copy to observe it. The classical MVC pattern with it's observing view doesn't hold, but it is vage enough to not insist upon observing and survives.
 
-## Women are men and men are women
+## The view becomes the controller and the controller becomes the view
 
 We can't directly bind to the big data any longer and it is pointless to bind to the small data views to observe them, as **they don't change but need to be exchanged instead**. Now, who does exchange them? The controller or the view? 
 
@@ -41,7 +41,7 @@ This new world controller does not handle keyboard input any more. Either it is 
 
 Apart from this it mainly takes up jobs of the classical view, querying the model, serving and even setting data into the view. This explains, why it is often **difficult to clearly separate the controller from the view** today. This becomes especially obvious in the case of list adapters, that set model data in very detail deep into the view. They combine logical and visual elements. It's not clear-cut if you want to count them to the controller or to the view. You have to make a decision and hold to it, if you want to us a clean MVC pattern.
 
-## Getting to a clean separtion again
+## Getting towards a clean separtion again
 
 Let's consider the rare form of a minimised controller with a very active view. All it does is decision making. The view fully queries the model. The user is sending two types of data. The first type is data to be stored by the current view into the model (POST). The second type is data, that is required as parameters to do a query (GET) by the following activity. Each call to the controller has two phases. The first phase finishes the current activity, i.e. it commands the view to store the given POST data. Then it makes the decision about the following activity. In the second phase it starts the new activity and handles over the GET data. The new activity tells it's view to use the GET data to query the model. 
 
