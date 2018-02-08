@@ -1,4 +1,4 @@
-# Blog.MVCrevisited
+# Blog: Model View Controller Revisited
 Revisiting the MVC pattern
 
 The model view controller pattern (MVC) in general is the common model people use, when asking how to structure software with a user interface. The MVC pattern is vague enough to match almost all cases of well structured software und precise enough to describe the minimal set of software organisation of this kind.
