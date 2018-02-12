@@ -25,9 +25,13 @@ You would not expect, that the screen is observing the actual database and and c
 
 So the idea of a view, that is permanently observing the model, that is bound to the model, is confronted with more practical requirements. A very typical view displays a single dataset. You can't bind every dataset to it's own observing view. Views are too expensive in relation to data. They need to be reused whenever possible. This changes the game. A new type of data comes in, the result of a query, a copy of one ore more related datasets. I already addressed this small pice of data as a snapshot in time. Another term used within the field of databases is the data view. Not to be confused with the view in terms of the visible components, but related in terms form the point of view of the user. The models data view becomes a visual view of this data upon the screen.
 
+
+
 ## No common term for what it is all about
 
-**Now what is the model?** The big data model? The data view taken from this big data by any kind of a query? Or both? This are two reasons, why the MVC pattern leads to confusion. First there are two kinds of data, the big one and the small copy. The small copy is a central part. For the DB it's a query result, for JSP it's a JavaBean, other frameworks speak of domain objects, and, and, and ... Dispite the small data copy is a central key in the MVC pattern it lacks a common term. Second, in the moment the small copy comes in, the observer pattern becomes pointless. A copy doesn't change. There is no reason to bind to a copy to observe it. The classical MVC pattern with it's observing view doesn't hold, but it is vage enough to not insist upon observing and survives.
+**Now what is the model?** The big data model? The data view taken from this big data by any kind of a query? Or both? This are two reasons, why the MVC pattern leads to confusion. First there are two kinds of data, the big one and the small copy. The small copy is a central part. For the DB it's a query result, for JSP it's a JavaBean, other frameworks speak of domain objects, DAO, and, and, and ... Dispite the small data copy is a central key in the MVC pattern it lacks a common term. Second, in the moment the small copy comes in, the observer pattern becomes pointless. A copy doesn't change. There is no reason to bind to a copy to observe it. The classical MVC pattern with it's observing view doesn't hold, but it is vage enough to not insist upon observing and survives.
+
+Update: For example Android Room goes a long way to actually observe changes in the database and update the object displayed in the view. It depends on the usecase, if this is helpful or anoying for the user und should be applied. In fact it is a giant step back towards the orginal concept of MVC. If this a a general trend, the observation of this article is more true in the field of web development.
 
 ## The view becomes the controller and the controller becomes the view
 
